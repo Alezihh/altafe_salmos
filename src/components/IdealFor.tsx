@@ -62,7 +62,7 @@ export function IdealFor() {
         </Card>
 
         <div className="flex justify-center pt-2">
-          <CTAButton variant="hero">
+          <CTAButton href="#planos" variant="hero">
             QUERO ADQUIRIR O MEU
           </CTAButton>
         </div>

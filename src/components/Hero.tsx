@@ -41,7 +41,7 @@ export function Hero() {
           </span>
         </p>
 
-        <CTAButton variant="hero">
+        <CTAButton href="#planos" variant="hero">
           QUERO ADQUIRIR O MEU
         </CTAButton>
       </div>

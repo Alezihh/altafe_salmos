@@ -45,7 +45,9 @@ const Index = () => {
       <BonusSection />
 
       {/* Pricing Section (with its own background) */}
-      <PricingSection />
+      <div id="planos">
+        <PricingSection />
+      </div>
 
       {/* FAQ Section */}
       <Section className="py-16 bg-secondary">

@@ -14,10 +14,22 @@ export function CTAButton({
   variant = "default"
 }: CTAButtonProps) {
   const isExternal = href.startsWith('http');
+  const isHashLink = href.startsWith('#');
   
   const buttonClasses = variant === "hero" 
     ? "bg-[hsl(85,70%,45%)] hover:bg-[hsl(85,70%,40%)] text-white text-base md:text-lg font-bold py-6 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
     : "bg-[hsl(85,70%,45%)] hover:bg-[hsl(85,70%,40%)] text-white font-semibold";
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isHashLink) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
 
   if (isExternal) {
     return (
@@ -43,7 +55,7 @@ export function CTAButton({
       size="lg"
       className={`${buttonClasses} ${className}`}
     >
-      <a href={href}>
+      <a href={href} onClick={handleClick}>
         {children}
       </a>
     </Button>

@@ -4,8 +4,8 @@ import { Check, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 export function PricingSection() {
   const completePlanItems = ["150 Salmos Explicado Versículo por Versículo", "31 Provérbios Explicado Versículo por Versículo", "Evangelho de Matheus Explicado Versículo por Versículo", "Evangelho de Marcos Explicado Versículo por Versículo", "Evangelho de Lucas Explicado Versículo por Versículo", "Evangelho de João Explicado Versículo por Versículo", "100 Versículos do Antigo Testamento - Explicados", "100 Versículos do Novo Testamento - Explicados", "Coleção Ouro - 200 Versículos Reveladores - Explicado"];
-  const basicCheckoutUrl = import.meta.env.VITE_CHECKOUT_URL_BASIC || "#SALMOS";
-  const completeCheckoutUrl = import.meta.env.VITE_CHECKOUT_URL_COMPLETE || "#SALMOS";
+  const basicCheckoutUrl = import.meta.env.VITE_CHECKOUT_URL_BASIC || "https://pay.kirvano.com/2fa8a26c-f6ec-4dba-884f-68fd756689fc";
+  const completeCheckoutUrl = import.meta.env.VITE_CHECKOUT_URL_COMPLETE || "https://pay.kirvano.com/08f3df25-3349-48f4-8a37-d47e70e23e6e";
   return <div className="bg-secondary py-16 px-4">
       <div className="max-w-6xl mx-auto space-y-12">
         <div className="text-center space-y-4">
