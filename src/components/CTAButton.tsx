@@ -5,13 +5,15 @@ interface CTAButtonProps {
   children: React.ReactNode;
   className?: string;
   variant?: "default" | "hero";
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export function CTAButton({ 
   href = "#SALMOS", 
   children, 
   className = "",
-  variant = "default"
+  variant = "default",
+  onClick
 }: CTAButtonProps) {
   const isExternal = href.startsWith('http');
   const isHashLink = href.startsWith('#');
@@ -21,6 +23,11 @@ export function CTAButton({
     : "bg-[hsl(85,70%,45%)] hover:bg-[hsl(85,70%,40%)] text-white font-semibold";
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Call custom onClick handler if provided
+    if (onClick) {
+      onClick(e);
+    }
+    
     if (isHashLink) {
       e.preventDefault();
       const targetId = href.substring(1);

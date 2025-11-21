@@ -2,10 +2,20 @@ import { CTAButton } from "./CTAButton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { trackCheckoutClick } from "@/lib/facebookPixel";
+
 export function PricingSection() {
   const completePlanItems = ["150 Salmos Explicado Versículo por Versículo", "31 Provérbios Explicado Versículo por Versículo", "Evangelho de Matheus Explicado Versículo por Versículo", "Evangelho de Marcos Explicado Versículo por Versículo", "Evangelho de Lucas Explicado Versículo por Versículo", "Evangelho de João Explicado Versículo por Versículo", "100 Versículos do Antigo Testamento - Explicados", "100 Versículos do Novo Testamento - Explicados", "Coleção Ouro - 200 Versículos Reveladores - Explicado"];
   const basicCheckoutUrl = import.meta.env.VITE_CHECKOUT_URL_BASIC || "https://pay.kirvano.com/2fa8a26c-f6ec-4dba-884f-68fd756689fc";
-  const completeCheckoutUrl = import.meta.env.VITE_CHECKOUT_URL_COMPLETE || "https://pay.kirvano.com/08f3df25-3349-48f4-8a37-d47e70e23e6e";
+  const completeCheckoutUrl = import.meta.env.VITE_CHECKOUT_URL_COMPLETE || "https://pay.kirvano.com/343992d7-598c-4bda-808e-77a44b2b9f76";
+
+  const handleBasicClick = () => {
+    trackCheckoutClick('basic', 17.90);
+  };
+
+  const handleCompleteClick = () => {
+    trackCheckoutClick('complete', 27.90);
+  };
   return <div className="bg-secondary py-16 px-4">
       <div className="max-w-6xl mx-auto space-y-12">
         <div className="text-center space-y-4">
@@ -45,7 +55,7 @@ export function PricingSection() {
                 </p>
               </div>
 
-              <CTAButton href={basicCheckoutUrl} variant="hero" className="w-full">
+              <CTAButton href={basicCheckoutUrl} variant="hero" className="w-full" onClick={handleBasicClick}>
                 QUERO SOMENTE O BÁSICO
               </CTAButton>
 
@@ -109,7 +119,7 @@ export function PricingSection() {
                 </Badge>
               </div>
 
-              <CTAButton href={completeCheckoutUrl} variant="hero" className="w-full">
+              <CTAButton href={completeCheckoutUrl} variant="hero" className="w-full" onClick={handleCompleteClick}>
                 QUERO O PLANO COMPLETO
               </CTAButton>
 
