@@ -45,11 +45,15 @@ export function trackCheckoutClick(planType: 'basic' | 'complete', value: number
   // 1 BRL ≈ 0.20 USD (adjust as needed)
   const valueInUSD = value * 0.20;
   
-  trackEvent('InitiateCheckout', {
-    content_name: planType === 'basic' ? 'Plano Básico' : 'Plano Completo',
+  const contentName = planType === 'basic' ? 'Plano Básico' : 'Plano Completo';
+  const eventParams = {
+    content_name: contentName,
     content_category: 'Salmos Explicados',
     value: valueInUSD,
     currency: 'USD',
-  });
+  };
+  
+  // Dispara AddToCart quando o usuário clica no botão
+  trackEvent('AddToCart', eventParams);
 }
 
