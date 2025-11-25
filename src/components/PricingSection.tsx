@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { trackCheckoutClick } from "@/lib/facebookPixel";
+import { trackTikTokAddToCart } from "@/lib/tiktokPixel";
 
 export function PricingSection() {
   const completePlanItems = ["150 Salmos Explicado Versículo por Versículo", "31 Provérbios Explicado Versículo por Versículo", "Evangelho de Matheus Explicado Versículo por Versículo", "Evangelho de Marcos Explicado Versículo por Versículo", "Evangelho de Lucas Explicado Versículo por Versículo", "Evangelho de João Explicado Versículo por Versículo", "100 Versículos do Antigo Testamento - Explicados", "100 Versículos do Novo Testamento - Explicados", "Coleção Ouro - 200 Versículos Reveladores - Explicado"];
@@ -11,10 +12,12 @@ export function PricingSection() {
 
   const handleBasicClick = () => {
     trackCheckoutClick('basic', 17.90);
+    trackTikTokAddToCart('basic', 17.90);
   };
 
   const handleCompleteClick = () => {
     trackCheckoutClick('complete', 27.90);
+    trackTikTokAddToCart('complete', 27.90);
   };
   return <div className="bg-secondary py-16 px-4">
       <div className="max-w-6xl mx-auto space-y-12">
